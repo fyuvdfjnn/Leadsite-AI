@@ -8,7 +8,7 @@ interface EditableElementProps extends React.HTMLAttributes<HTMLElement> {
   /** 元素唯一标识符 */
   elementId: string
   /** 渲染的 HTML 标签 */
-  as?: keyof JSX.IntrinsicElements
+  as?: keyof React.JSX.IntrinsicElements
   /** 默认类名 */
   defaultClassName?: string
   /** 子元素 */
@@ -80,13 +80,13 @@ EditableElement.displayName = "EditableElement"
 /**
  * 创建预设的可编辑元素组件
  */
-export function createEditableElement<T extends keyof JSX.IntrinsicElements>(
+export function createEditableElement<T extends keyof React.JSX.IntrinsicElements>(
   tag: T,
   displayName: string
 ) {
   const Component = forwardRef<
     HTMLElement,
-    Omit<EditableElementProps, "as"> & JSX.IntrinsicElements[T]
+    Omit<EditableElementProps, "as"> & React.JSX.IntrinsicElements[T]
   >(({ elementId, defaultClassName, children, ...props }, ref) => (
     <EditableElement
       ref={ref}
