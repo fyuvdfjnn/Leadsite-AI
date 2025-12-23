@@ -30,10 +30,6 @@ export function HeaderFloatingToolbar({
   const arrowRef = useRef<HTMLDivElement>(null)
 
   const { refs, floatingStyles, placement } = useFloating({
-    open: !!headerElement,
-    onOpenChange: (open) => {
-      if (!open) onClose()
-    },
     middleware: [
       offset(12),
       flip({

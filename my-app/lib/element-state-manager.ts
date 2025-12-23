@@ -228,16 +228,6 @@ export class ElementStateManager {
     this.notifyListeners()
   }
 
-  /** 清除当前页面所有状态 */
-  clearPageStates() {
-    const toDelete = Array.from(this.states.entries())
-      .filter(([, state]) => state.pageId === this.currentPageId)
-      .map(([id]) => id)
-    
-    toDelete.forEach(id => this.states.delete(id))
-    this.saveToStorage()
-    this.notifyListeners()
-  }
 
   // ============ 历史记录（撤销/重做）============
 

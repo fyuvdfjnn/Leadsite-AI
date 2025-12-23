@@ -1106,7 +1106,7 @@ export function VisualEditor({ initialPrompt }: VisualEditorProps = {}) {
       )}
 
       {/* Publish Progress Modal */}
-      {(isPublishing && publishStatus !== "success") && (
+      {isPublishing && (
         <div className="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="w-full max-w-md bg-background rounded-2xl shadow-2xl border border-border p-5 space-y-4">
             <div className="flex items-center justify-between">

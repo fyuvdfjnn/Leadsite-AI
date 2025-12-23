@@ -58,7 +58,7 @@ export function RichTextToolbar({ editor }: RichTextToolbarProps) {
     [],
   )
 
-  const setHeading = (level?: number) => {
+  const setHeading = (level?: 1 | 2 | 3 | 4 | 5 | 6) => {
     if (!level) {
       editor.chain().focus().setParagraph().run()
       return
@@ -105,7 +105,12 @@ export function RichTextToolbar({ editor }: RichTextToolbarProps) {
           onChange={(e) => {
             const val = e.target.value
             if (val === "p") setHeading(undefined)
-            else setHeading(Number(val.replace("h", "")))
+            else {
+              const level = Number(val.replace("h", "")) as 1 | 2 | 3 | 4 | 5 | 6
+              if (level >= 1 && level <= 6) {
+                setHeading(level)
+              }
+            }
           }}
           className="px-2 py-1 text-sm border-2 border-gray-400 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
           style={{ backgroundColor: '#ffffff', color: '#1f2937', borderColor: '#9ca3af' }}

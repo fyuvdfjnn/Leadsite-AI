@@ -88,7 +88,7 @@ export function VisualSelectOverlay({
   const [isDragging, setIsDragging] = useState(false)
   const [isResizing, setIsResizing] = useState(false)
   
-  const rafRef = useRef<number>()
+  const rafRef = useRef<number | undefined>(undefined)
   const selectedElementRef = useRef<DetectedElement | null>(null)
   const dragStateRef = useRef<{
     type: 'move' | 'resize'
@@ -124,7 +124,11 @@ export function VisualSelectOverlay({
       setCanUndo(stateManager.current.canUndo())
       setCanRedo(stateManager.current.canRedo())
     })
-    return unsubscribe
+    return () => {
+      if (typeof unsubscribe === 'function') {
+        unsubscribe()
+      }
+    }
   }, [])
 
   // 清除选中

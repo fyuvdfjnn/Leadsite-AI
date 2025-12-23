@@ -1,7 +1,8 @@
 "use client"
 
 import React, { createContext, useContext, useState, useCallback, useEffect } from "react"
-import type { HeaderElement, HeaderUpdates } from "./header-floating-toolbar"
+import type { HeaderElement } from "@/lib/header-detector"
+import type { HeaderUpdates } from "./header-floating-toolbar"
 import { detectHeaderElement, getElementFromEvent, getElementFromSelection } from "@/lib/header-detector"
 import { HeaderFloatingToolbar } from "./header-floating-toolbar"
 
