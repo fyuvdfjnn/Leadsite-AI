@@ -65,10 +65,6 @@ export function ElementFloatingToolbar({
   const arrowRef = useRef<HTMLDivElement>(null)
 
   const { refs, floatingStyles } = useFloating({
-    open: !!element,
-    onOpenChange: (open) => {
-      if (!open) onClose()
-    },
     middleware: [
       offset(12),
       flip({
