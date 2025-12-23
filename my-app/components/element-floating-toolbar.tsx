@@ -46,6 +46,11 @@ function getElementTypeLabel(type: ElementType): string {
     text: "Text",
     image: "Image",
     link: "Link",
+    input: "Input",
+    container: "Container",
+    list: "List",
+    listItem: "List Item",
+    footer: "Footer",
     unknown: "Element",
   }
   return labels[type] || "Element"
